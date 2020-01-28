@@ -37,7 +37,7 @@ export class OrderServiceService {
     return this.firestore.doc('orderS/' + id).set(email);
   }
   updateStatus(orderId,status){
-    return this.firestore.doc('orderS/' + orderId).update(status);
+    return this.firestore.doc('orderS/' + orderId).set(status);
   }
 read_order(){
   return this.firestore.collection('orderS').snapshotChanges();
@@ -73,11 +73,13 @@ readCompleteOrder(){
     return this.firestore.doc(`orderS/${id}`).snapshotChanges().pipe(
       take(1),
       map(a => {
+        const id = a.payload.id;
         const name = a.payload.data()['custName'];
         const mall = a.payload.data()['mallName'];
         const status = a.payload.data()['status'];
+        const shopperEmail = a.payload.data()['ShopperEmail'];
 
-        return {id,name,mall,status};
+        return {id,name,mall,status,shopperEmail};
       })
     )
 

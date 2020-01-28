@@ -8,16 +8,16 @@
 </ion-header>
 
 <ion-content>
-  <ion-item *ngFor = "let item of AcceptOrder">
+  <ion-item *ngFor = "let item of orderById">
   <div class = "content1">
  Order ID<b class = "p2">{{orderId}}</b>
  <!--<ion-text color ="Dark" class = "custName">-->
-<p>{{item.name}}</p>
- <ion-button class ="availButton" size = "small" color = "warning" shape = "round" (click)="updateStatus(item)">
+<p>{{item.custName}}</p>
+ <ion-button class ="availButton" size = "small" color = "warning" shape = "round" [routerLink] = "['/test']" (click)="updateSTATUS(item)">
    {{item.status}}
   </ion-button>
 <p class="p3">
-  {{item.status}} &nbsp; {{item.mall}}
+  {{item.status}} &nbsp; {{item.mallName}}
 </p>
 <!--</ion-text>-->
 </div>

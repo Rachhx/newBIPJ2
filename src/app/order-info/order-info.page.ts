@@ -11,6 +11,10 @@ import { orderDetails } from '../shared/models/orderDetails';
 import { OrderServiceService } from '../shared/services/order-service.service';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { UserData } from '../shared/models/user';
+import { AuthService } from '../shared/services/auth.service';
+
+
 
 @Component({
   selector: 'app-order-info',
@@ -23,26 +27,30 @@ export class OrderInfoPage implements OnInit {
   orderDetails: orderDetails[];
   OrderA: any;
 
-  orderDetail:any;
+  orderDetail: any;
   orderItem: any;
   orderId: string;
   orders: Observable<any[]>;
-  orderById= [];
-  AcceptOrder:any;
+  orderById: UserData[] = [];
+  AcceptOrder: UserData;
 
   constructor(private orderService: OrdersService,
     private activatedRoute: ActivatedRoute,
     private orderItemService: FirebaseOrderService,
-    private orderServiceService: OrderServiceService
+    private orderServiceService: OrderServiceService,
+    private authService: AuthService
   ) {
-    this.orderId = this.activatedRoute.snapshot.params.id;
-    this.orderServiceService.getOrderByID(this.orderId).subscribe(res => {
-      console.log('AcceptOrder: ', res);
-      this.AcceptOrder = res;
-    });
+   
   }
   ngOnInit() {
-    
+    this.orderId = this.activatedRoute.snapshot.params.id;
+    this.orderServiceService.getOrderByID(this.orderId).subscribe(res => {
+      console.log('AcceptOrder: ', res)
+      const user = new UserData(res.id,res.shopperEmail,res.name, res.status, res.mall);
+      this.AcceptOrder = user;
+      this.orderById.push(this.AcceptOrder);
+      console.log('orderBYid: ', this.orderById)
+    });
     // this.activatedRoute.params.subscribe(data => {
     //   this.orderServiceService.getOrderByID(data.id).subscribe(res => {
     //     console.log('res: ', res);
@@ -86,16 +94,16 @@ export class OrderInfoPage implements OnInit {
     //   })
     //   console.log(this.order);
     // });
-    this.orderServiceService.getAcceptedOrderInfo(this.orderId).subscribe(data => {
-      this.orderDetail = data.map(e => {
-        return {
-          CustName: e.payload.doc.data()['custName'],
-          MallName: e.payload.doc.data()['mallName'],
-          Status: e.payload.doc.data()['status']
-        };
-      })
-      console.log("orderDetail: " + this.orderDetail);
-    })
+    // this.orderServiceService.getAcceptedOrderInfo(this.orderId).subscribe(data => {
+    //   this.orderDetail = data.map(e => {
+    //     return {
+    //       CustName: e.payload.doc.data()['custName'],
+    //       MallName: e.payload.doc.data()['mallName'],
+    //       Status: e.payload.doc.data()['status']
+    //     };
+    //   })
+    //   console.log("orderDetail: " + this.orderDetail);
+    // })
 
     this.orderServiceService.getAcceptedOrderItem(this.orderId).subscribe(data => {
       this.orderItem = data.map(e => {
@@ -112,12 +120,21 @@ export class OrderInfoPage implements OnInit {
     })
   }
   deleteorderitem(id) {
-    this.orderServiceService.deleteOrderItem(this.orderId,id);
+    this.orderServiceService.deleteOrderItem(this.orderId, id);
     console.log('ITEM DELETED!!');
   }
   updateStatus(status) {
     let OrderStatus = {};
     OrderStatus['status'] = 'Ready for Collection';
-    this.orderServiceService.updateStatus(status.id, OrderStatus);
+    this.orderServiceService.update_OrderStatus(status.id, OrderStatus);
   }
+  updateSTATUS(status){
+      let order = {};
+      order['ShopperEmail'] = status.ShopperEmail;
+      order['custName'] = status.custName;
+      order['mallName'] = status.mallName;
+      order['status'] = 'Ready for Collection';
+      this.orderServiceService.updateStatus(status.id,order);
+  }
+  
 }
