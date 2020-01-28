@@ -1,0 +1,77 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Order Management
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-label *ngFor = "let label of order">   
+  <h1 > Drop off: {{label.MallName}} </h1>
+    <br/>
+<h2> Order List</h2>
+<br/>
+<ion-item>
+  <!-- <ion-label>Order No.: {{orderId}}</ion-label> -->
+<!-- </ion-item>
+<ion-item>
+<ion-label position="fixed">Mall Name:</ion-label>
+<ion-input [(ngModel)]="orderDetails.MallName"></ion-input>
+</ion-item>
+<ion-item>
+  <ion-label position="fixed">Drop Off:</ion-label>
+  <ion-input [(ngModel)]="orderDetails.MallName" ></ion-input>
+</ion-item> -->
+  <p class="content1">
+  Order No. {{oId}} <br/>
+  Drop-Off Point &nbsp; xxxx <br/>
+  Mall:&nbsp; {{label.MallName}} <br/>
+  </p>
+</ion-item>
+</ion-label>
+  <p class = "label3"></p>
+  <ion-list>
+    <ion-item *ngFor = "let item of orderItem">
+  <!--<div class="content2">
+    <ion-label>-->
+  {{item.StoreName}}
+  <div class="item-note" slot = "end">
+ {{item.Quantity}} item
+  </div>
+    </ion-item>
+  </ion-list>
+  <!--<ion-list>
+    <ion-item>
+      <ion-label>
+    <p class="shopLeft">Watsons</p>
+    <p class="itemRight">2 item</p>
+      </ion-label>
+    </ion-item>
+    </ion-list>
+    <ion-list>
+      <ion-item>
+        <ion-label>
+      <p class="shopLeft">Cotton On</p>
+      <p class="itemRight">2 item</p>
+        </ion-label>
+      </ion-item>
+      </ion-list>
+      <ion-list>
+        <ion-item>
+          <ion-label>
+        <p class="shopLeft">Sephora</p>
+        <p class="itemRight">2 item</p>
+          </ion-label>
+        </ion-item>
+      </ion-list>-->
+      <br/>
+      <ion-button (click)="updateStatus(label)" class ="buttonA" color ="success" >Accept</ion-button>
+<!-- [routerLink] = "['/test']"  -->
+<p class ="temp">Status: {{ text }}</p>
+<!--<ion-button (click)="changeDStatus()" class ="buttonD" color ="danger" > Decline</ion-button>-->
+</ion-content>
+
