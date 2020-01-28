@@ -47,7 +47,7 @@ export class OrderInfoPage implements OnInit {
     this.orderServiceService.getOrderByID(this.orderId).subscribe(res => {
       console.log('AcceptOrder: ', res)
       const user = new UserData(res.id,res.shopperEmail,res.name, res.status, res.mall);
-      this.AcceptOrder = user;
+      this.AcceptOrder = user;   
       this.orderById.push(this.AcceptOrder);
       console.log('orderBYid: ', this.orderById)
     });
