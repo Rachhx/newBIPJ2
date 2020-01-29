@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
-import { TestService } from '../../services/test.service';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { TestService } from '../services/test.service';
 
 @Component({
   selector: 'app-test-sh',

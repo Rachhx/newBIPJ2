@@ -3,12 +3,12 @@ import { Observable, forkJoin } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ChatService } from 'src/app/services/chat.service';
-import { TestService } from '../../services/test.service';
 import { map } from 'rxjs/operators';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { ModalController } from '@ionic/angular';
-import { TestShQRPage } from '../../modals/test-sh-qr/test-sh-qr.page';
-import { TestShProgressPage } from '../../modals/test-sh-progress/test-sh-progress.page';
+import { TestService } from '../services/test.service';
+import { TestShProgressPage } from '../modals/test-sh-progress/test-sh-progress.page';
+import { TestShQRPage } from '../modals/test-sh-qr/test-sh-qr.page';
 
 @Component({
   selector: 'app-test-sh-order',
