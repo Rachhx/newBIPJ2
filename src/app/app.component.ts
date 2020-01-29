@@ -20,11 +20,6 @@ export class AppComponent {
       title: 'Home',
       url: '/home',
       icon: 'home'
-    },
-    {
-      title: 'List',
-      url: '/list',
-      icon: 'list'
     }
   ];
   public appPagesAuthenticated = [
@@ -34,35 +29,20 @@ export class AppComponent {
       icon: 'home'
     },
     {
-      title: 'List',
-      url: '/list',
-      icon: 'list'
+      title: 'New orders',
+     url: '/show-orders',
+      icon: 'Orders'
     },
-    {
-     title: 'Order History',
-     url: '/order-history',
-     icon: 'history'
-   },
-   // {
-    ///  title: 'Order Information',
-    //  url: '/order-info',
-    //  icon: 'information'
-  //  },
-    //{
-    //  title: 'Item Information',
-    //  url: '/item-info',
-   //   icon: 'information'
-   // },
     {
       title: 'Activity Page',
      url: '/test',
       icon: 'Activity'
     },
     {
-      title: 'New orders',
-     url: '/show-orders',
-      icon: 'Orders'
-    },
+     title: 'Order History',
+     url: '/order-history',
+     icon: 'history'
+   },
     {
       title: 'Profile',
       url: '/profile',
