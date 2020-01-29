@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs'; //to count products 
+import { BehaviorSubject } from 'rxjs';
 
 export interface Product {
   src: string;
