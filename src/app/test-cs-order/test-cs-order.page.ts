@@ -3,11 +3,11 @@ import { Observable, forkJoin } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ChatService } from 'src/app/services/chat.service';
-import { TestService } from '../../services/test.service';
 import { map } from 'rxjs/operators';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { ModalController } from '@ionic/angular';
-import { TestCsCollectionPage } from '../../modals/test-cs-collection/test-cs-collection.page';
+import { TestService } from '../services/test.service';
+import { TestCsCollectionPage } from '../modals/test-cs-collection/test-cs-collection.page';
 
 @Component({
   selector: 'app-test-cs-order',

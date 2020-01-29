@@ -1,10 +1,10 @@
 import { CartService } from './../services/cart.service';
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { ModalController } from '@ionic/angular';
-import { CartModalPage } from '../pages/cart-modal/cart-modal.page';
 import { BehaviorSubject } from 'rxjs';
 import { CrudService } from '../crud.service';
 import { Product } from '../shared/product';
+import { CartModalPage } from '../cart-modal/cart-modal.page';
  
 @Component({
   selector: 'app-categories',
