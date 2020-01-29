@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { User } from 'firebase';
 import { AngularFirestore } from '@angular/fire/firestore';
-import * as firebase from 'firebase/app';
+import * as firebase from 'firebase';
 import 'firebase/firestore';
 import { take, map, tap } from 'rxjs/operators';
 
@@ -16,6 +16,7 @@ export interface UserCredentials {
   providedIn: 'root'
 })
 export class AuthService {
+  
   user: User = null;
   username = '';
 

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
-import { AuthService } from '../shared/services/auth.service';
-import { ToastController, ModalController } from '@ionic/angular';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { AuthService } from 'src/app/services/auth.service';
+import { AlertController, ToastController } from '@ionic/angular';
 import { Router } from '@angular/router';
 
 @Component({
@@ -13,39 +13,76 @@ export class LoginPage implements OnInit {
  loginForm: FormGroup;
  loginError: string;
 
-  constructor(private authService: AuthService,
-    private toastController: ToastController,
-    private modalController: ModalController,
-    private router: Router) {
-      this.loginForm = new FormGroup({
-        email: new FormControl(''),
-        password: new FormControl('')
-      });
-     }
+  constructor(
+    private form: FormBuilder, 
+    private auth: AuthService, 
+    private alertCtrl: AlertController, 
+    private toastCtrl: ToastController, 
+    private router: Router
+    
+  ) {  }
 
   ngOnInit() {
-  }
-  dismiss(){
-    this.modalController.dismiss();
+    this.loginForm = this.form.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(6)]]
+    });
   }
 
-  login(){
-    this.authService.login(this.loginForm.value.email, this.loginForm.value.password,).then(
-      async () => {
-        const toast = await this.toastController.create({
-          message: 'Login successful',
-          duration: 2000,
-          position: 'top',
-          color: 'secondary'
-        });
-        toast.present();
-        //this.router.navigate(['/new-orders']);
-        this.dismiss();
-      }
-    )
-    .catch(
-      error => this.loginError = error.message
-    );
+  login() {
+    this.auth.signIn(this.loginForm.value).then((res) => {
+      this.router.navigateByUrl('/dashboard');
+    }, async (err) => {
+      let alert = await this.alertCtrl.create({
+        header: 'Error',
+        message: err.message,
+        buttons: ['OK']
+      });
+      alert.present();
+    })
   }
+
+  async openReset() {
+    let inputAlert = await this.alertCtrl.create({
+      header: 'Reset Password',
+      inputs: [
+        {
+          name: 'email',
+          placeholder: 'Email'
+        }
+      ],
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel'
+        },
+        {
+          text: 'Reset',
+          handler: data => {
+            this.resetPw(data.email);
+          }
+        }
+      ]
+    });
+    inputAlert.present();
+  }
+
+  resetPw(email) {
+    this.auth.resetPw(email).then(async (res) => {
+      let toast = await this.toastCtrl.create({
+        duration: 3000,
+        message: 'Success! Check your Emails for more information.'
+      });
+      toast.present();
+    }, async (err) => {
+      let alert = await this.alertCtrl.create({
+        header: 'Error',
+        message: err.message,
+        buttons: ['OK']
+      });
+      alert.present();
+    });
+  }
+
 
 }
