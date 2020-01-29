@@ -14,7 +14,12 @@ export class CartModalPage implements OnInit {
  
   cart: Product[] = [];
  
-  constructor(private cartService: CartService, private modalCtrl: ModalController, private alertCtrl: AlertController, private crudService: CrudService) { }
+  constructor(
+    private cartService: CartService, 
+    private modalCtrl: ModalController, 
+    private alertCtrl: AlertController, 
+    private crudService: CrudService
+  ) { }
  
   ngOnInit() {
     this.cart = this.cartService.getCart();

@@ -24,6 +24,7 @@ import { Base64ToGallery } from '@ionic-native/base64-to-gallery/ngx';
 import { Firebase } from '@ionic-native/firebase/ngx';
 import { Camera } from '@ionic-native/camera/ngx';
 import { FirebaseX } from '@ionic-native/firebase-x/ngx';
+import { AngularFireStorageModule } from '@angular/fire/storage';
 
 @NgModule({
   declarations: [
@@ -38,25 +39,25 @@ import { FirebaseX } from '@ionic-native/firebase-x/ngx';
     TestShQRPage
   ],
   imports: [
-     BrowserModule,
-    IonicModule.forRoot(),
+    BrowserModule, 
+    IonicModule.forRoot(), 
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
-    AngularFireDatabaseModule,
+    AngularFireStorageModule,
     AngularFireAuthModule,
-    NgxQRCodeModule
+    NgxQRCodeModule,
   ],
   providers: [
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     Firebase,
+    Camera,
     { provide: FirestoreSettingsToken, useValue: {} },
     FirebaseX,
     BarcodeScanner,
     Base64ToGallery,
-    Camera,
   ],
   bootstrap: [AppComponent]
 })

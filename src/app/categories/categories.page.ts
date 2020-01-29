@@ -17,7 +17,7 @@ export class CategoriesPage {
   cart = [];
   products = [];
   cartItemCount: BehaviorSubject<number>;
- 
+    
   @ViewChild('cart', {static: false, read: ElementRef})fab: ElementRef;
  
   constructor(private cartService: CartService, private modalCtrl: ModalController,private crudService: CrudService) {}

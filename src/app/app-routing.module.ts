@@ -84,6 +84,10 @@ const routes: Routes = [
     path: 'test-sh-progress',
     loadChildren: () => import('./modals/test-sh-progress/test-sh-progress.module').then( m => m.TestShProgressPageModule)
   },
+  {  
+    path: 'dashboard', canActivate: [AuthGuard],
+    loadChildren: () => import('./dashboard/dashboard.module').then( m => m.DashboardPageModule)
+  },
 
 
 
