@@ -5,13 +5,18 @@ import { orderItemTry } from '../models/orderItemTry';
 import { orderTry } from '../models/orderTry';
 import { ItemInfoPage } from 'src/app/item-info/item-info.page';
 import { orderDetails } from '../models/orderDetails';
+
 @Injectable({
   providedIn: 'root'
 })
 export class FirebaseOrderService {
 
   arr = [];
-  constructor(private authService: AuthService) { }
+
+  constructor(
+    private authService: AuthService,
+    
+  ) { }
 
   addOrder(){
 

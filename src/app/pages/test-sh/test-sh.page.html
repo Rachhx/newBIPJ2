@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Shopper Activity</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-button>
+    Orders
+  </ion-button>
+  <ion-button>
+    Completed Orders
+  </ion-button>
+
+  <ion-card *ngFor="let data of datas | async" class="ion-padding" 
+  [routerLink]="['/','test-sh-order', (data | async)?.id || 0]">
+    <h2>{{ (data | async)?.title }}</h2>
+    <p>{{ (data | async)?.testId }}</p>
+  </ion-card>
+
+</ion-content>

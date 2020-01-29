@@ -1,0 +1,26 @@
+.mainName {
+    font-size: smaller;
+    font-weight: bold;
+}
+
+.otherInfo {
+    font-size: x-small;
+}
+
+.avatar {
+    border-radius:10px;
+    max-width: 45px;
+    display: block;
+    float: left;
+    margin-right: 1rem;
+}
+
+.bookingID {
+    font-weight: lighter;
+    font-size: smaller;
+    padding: 5px;
+}
+
+.statusButton{
+    font-weight: small;
+}
