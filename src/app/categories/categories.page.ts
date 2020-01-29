@@ -6,7 +6,7 @@ import { CrudService } from '../crud.service';
 import { Product } from '../shared/product';
 import { CartModalPage } from '../cart-modal/cart-modal.page';
  
-@Component({
+@Component({   
   selector: 'app-categories',
   templateUrl: 'categories.page.html',
   styleUrls: ['categories.page.scss']
