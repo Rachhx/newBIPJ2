@@ -65,12 +65,12 @@ export class ShowOrdersPage implements OnInit {
       }
     });
   }
-    updateStatus(status){
-      let OrderStatus = {};
-      OrderStatus['status'] = 'In progress';
-      this.orderService.update_OrderStatus(status.id,OrderStatus);
-      this.addShopper(status);
-    }
+    // updateStatus(status){
+    //   let OrderStatus = {};
+    //   OrderStatus['status'] = 'In progress';
+    //   this.orderService.update_OrderStatus(status.id,OrderStatus);
+    //   this.addShopper(status);
+    // }
 
 
     addShopper(shopper){

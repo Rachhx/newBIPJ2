@@ -101,19 +101,19 @@ export class AcceptOrderPage implements OnInit {
     })
   }
   
-    UpdateStatus(){
-      let Status = {};
-      if(this.orderId){
-      this.orderService.update_OrderStatus(this.oId,this.orderStatus).then(() => {
-        const toast = this.toastController.create({
-          message: 'Order Status updated!',
-          duration: 2000
-        });
-        toast.then(toast => toast.present());
-        // this.addShopper();
-      })
-    }
-  }
+  //   UpdateStatus(){
+  //     let Status = {};
+  //     if(this.orderId){
+  //     this.orderService.update_OrderStatus(this.oId,this.orderStatus).then(() => {
+  //       const toast = this.toastController.create({
+  //         message: 'Order Status updated!',
+  //         duration: 2000
+  //       });
+  //       toast.then(toast => toast.present());
+  //       // this.addShopper();
+  //     })
+  //   }
+  // }
 
   addShopper(){
     const user = this.authService.getCurrentUser();
@@ -126,12 +126,12 @@ export class AcceptOrderPage implements OnInit {
    }
       
 
-    updateStatus(status){
-      let OrderStatus = {};
-      OrderStatus['status'] = 'In progress';
-      this.orderService.update_OrderStatus(status.id,OrderStatus);
+    // updateStatus(status){
+    //   let OrderStatus = {};
+    //   OrderStatus['status'] = 'In progress';
+    //   this.orderService.update_OrderStatus(status.id,OrderStatus);
 
-    }
+    // }
 
   
     

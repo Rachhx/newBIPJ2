@@ -30,8 +30,8 @@ export class OrderServiceService {
     return this.firestore.doc('orderS/' + oId).get();
   }
 
-  update_OrderStatus(orderId, status) {
-    return this.firestore.doc('orderS/' + orderId).update(status);
+  update_OrderItem(orderId, id,status) {
+    return this.firestore.doc('orderS/' + orderId + '/orderItem/' + id).set(status);
   }
   addShopper(id, email) {
     return this.firestore.doc('orderS/' + id).set(email);
