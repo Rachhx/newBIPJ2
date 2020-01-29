@@ -123,10 +123,16 @@ export class OrderInfoPage implements OnInit {
     this.orderServiceService.deleteOrderItem(this.orderId, id);
     console.log('ITEM DELETED!!');
   }
-  updateStatus(status) {
+  updateItem(status) {
     let OrderStatus = {};
-    OrderStatus['status'] = 'Ready for Collection';
-    this.orderServiceService.update_OrderStatus(status.id, OrderStatus);
+    OrderStatus['note'] = 'Item not available';
+    OrderStatus['itemName'] = status.ItemName;
+    OrderStatus['itemPrice'] = status.ItemPrice;
+    OrderStatus['itemImage'] = status.ItemImage;
+    OrderStatus['storeName'] = status.StoreName;
+    OrderStatus['quantity'] = status.Quantity;
+    this.orderServiceService.update_OrderItem(this.orderId,status.id, OrderStatus);
+    console.log('ITEM UPDATED!!!!!');
   }
   updateSTATUS(status){
       let order = {};
