@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Test Environment</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-button expand="block" routerLink="/test-cs">Customer Activity</ion-button>
+  <ion-button expand="block" routerLink="/test-sh">Shopper Activity</ion-button>
+<br>
+<br>
+<br>
+  <ion-button expand="block" (click)="testData()">Test Create</ion-button>
+<br>
+  <ion-item *ngFor="let data of datas | async" 
+  [routerLink]="['/', 'test-update', (data | async)?.id || 0]">
+    {{data.title}} <br>
+    {{data.createdAdmin}} <br>
+    {{data.createdRider}}
+  </ion-item>
+
+</ion-content>
+  
