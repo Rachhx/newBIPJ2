@@ -80,22 +80,6 @@ const routes: Routes = [
     path: 'test-sh-progress',
     loadChildren: () => import('./modals/test-sh-progress/test-sh-progress.module').then( m => m.TestShProgressPageModule)
   },
-  {  
-    path: 'dashboard', canActivate: [AuthGuard],
-    loadChildren: () => import('./dashboard/dashboard.module').then( m => m.DashboardPageModule)
-  },
-  {  
-    path: 'categories', canActivate: [AuthGuard],
-    loadChildren: () => import('./pages/customer/categories/categories.module').then( m => m.CategoriesPageModule)
-  },
-  {
-    path: 'activity',
-    loadChildren: () => import('./pages/shopper/activity/activity.module').then( m => m.ActivityPageModule)
-  },
-  {
-    path: 'register',
-    loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
-  },
 
 
 

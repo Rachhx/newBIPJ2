@@ -19,7 +19,7 @@ export class CategoriesPage {
   cart = [];
   products = [];
   cartItemCount: BehaviorSubject<number>;
-    
+ 
   @ViewChild('cart', {static: false, read: ElementRef})fab: ElementRef;
  
   constructor(

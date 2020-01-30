@@ -41,25 +41,25 @@ import { CartModalPage } from './modals/cart-modal/cart-modal.page';
     CartModalPage
   ],
   imports: [
-    BrowserModule, 
-    IonicModule.forRoot(), 
+     BrowserModule,
+    IonicModule.forRoot(),
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
-    AngularFireStorageModule,
+    AngularFireDatabaseModule,
     AngularFireAuthModule,
-    NgxQRCodeModule,
+    NgxQRCodeModule
   ],
   providers: [
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     Firebase,
-    Camera,
     { provide: FirestoreSettingsToken, useValue: {} },
     FirebaseX,
     BarcodeScanner,
     Base64ToGallery,
+    Camera,
   ],
   bootstrap: [AppComponent]
 })
