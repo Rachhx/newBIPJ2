@@ -24,11 +24,6 @@ export class AppComponent {
   ];
   public appPagesAuthenticated = [
     {
-      title: 'Home',
-      url: '/home',
-      icon: 'home'
-    },
-    {
       title: 'New orders',
      url: '/show-orders',
       icon: 'Orders'
@@ -50,12 +45,12 @@ export class AppComponent {
     }
   ];
 
-  async login() {
-    const modal = await this.modalController.create({
-      component: LoginPage
-    });
-    return await modal.present();
-  }
+  // async login() {
+  //   const modal = await this.modalController.create({
+  //     component: LoginPage
+  //   });
+  //   return await modal.present();
+  // }
 
   constructor(
     private platform: Platform,

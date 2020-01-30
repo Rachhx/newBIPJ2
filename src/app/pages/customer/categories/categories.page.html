@@ -1,26 +1,33 @@
 <ion-header>
-  <ion-toolbar color="primary">
-    <ion-title>
-      <ion-icon routerLink="/list" name="arrow-back"></ion-icon>
-        Healthy Mart
-    </ion-title>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+      <ion-title>Healthy Mart</ion-title>
   </ion-toolbar>
 </ion-header>
- 
+
 <ion-content>
+  <!-- cart icon -->
   <ion-fab vertical="top" horizontal="end" slot="fixed">
     <ion-fab-button (click)="openCart()" #cart>
       <div class="cart-length">{{ cartItemCount | async }}</div>
       <ion-icon name="cart" class="cart-icon"></ion-icon>
     </ion-fab-button>
   </ion-fab>
+
+  <!-- product list -->
   <ion-list>
     <ion-card *ngFor="let p of products">
-        <ion-card-header>
+
+        <ion-card-header class="ion-no-padding ion-text-wrap title">
         <!-- <img [src]=/assets/imgvitaminwater.jpeg alt="" class="image-card">  -->
-        <ion-card-title>{{ p.name }}</ion-card-title>
+        <!-- <ion-card-title> -->
+          {{ p.name }}
+        <!-- </ion-card-title> -->
         </ion-card-header>
-      <ion-card-content>
+
+      <ion-card-content class="ion-no-padding ion-text-wrap content">
         <ion-row class="ion-align-items-center">
           <ion-col size="8">
             <ion-label color="secondary">
@@ -34,6 +41,8 @@
           </ion-col>
         </ion-row>
       </ion-card-content>
+
     </ion-card>
   </ion-list>
+
 </ion-content>

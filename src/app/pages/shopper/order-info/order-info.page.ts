@@ -1,18 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastController } from '@ionic/angular';
 import { ActivatedRoute } from '@angular/router';
-import { orders } from '../shared/models/orders';
-import { OrdersService } from '../shared/services/orders.service';
-import { orderItem } from '../shared/models/orderItem';
-import { orderItemTry } from '../shared/models/orderItemTry';
-import { FirebaseOrderService } from '../shared/services/firebase-order.service';
-import { orderTry } from '../shared/models/orderTry';
-import { orderDetails } from '../shared/models/orderDetails';
-import { OrderServiceService } from '../shared/services/order-service.service';
+import { orders } from '../../../shared/models/orders';
+import { OrdersService } from '../../../shared/services/orders.service';
+import { orderItem } from '../../../shared/models/orderItem';
+import { orderItemTry } from '../../../shared/models/orderItemTry';
+import { FirebaseOrderService } from '../../../shared/services/firebase-order.service';
+import { orderTry } from '../../../shared/models/orderTry';
+import { orderDetails } from '../../../shared/models/orderDetails';
+import { OrderServiceService } from '../../../shared/services/order-service.service';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { UserData } from '../shared/models/user';
-import { AuthService } from '../shared/services/auth.service';
+import { UserData } from '../../../shared/models/user';
+import { AuthService } from '../../../shared/services/auth.service';
 
 
 

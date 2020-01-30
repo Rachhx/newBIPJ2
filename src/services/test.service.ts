@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { AngularFireStorage, AngularFireStorageReference } from '@angular/fire/storage';
-import { take, map, switchMap } from 'rxjs/operators';
+import { AngularFireStorage } from '@angular/fire/storage';
+import { take, map } from 'rxjs/operators';
 import * as firebase from 'firebase';
-import { forkJoin, from } from 'rxjs';
-import { AuthService } from 'src/app/services/auth.service';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'

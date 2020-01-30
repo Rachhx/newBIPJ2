@@ -9,16 +9,12 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'home',
-    loadChildren: () => import('./home/home.module').then(m => m.HomePageModule)
-  },
-  {
     path: 'list',
-    loadChildren: () => import('./list/list.module').then(m => m.ListPageModule)
+    loadChildren: () => import('./pages/customer/list/list.module').then(m => m.ListPageModule)
   },
   {
     path: 'order-info/:id',
-    loadChildren: () => import('./order-info/order-info.module').then( m => m.OrderInfoPageModule)
+    loadChildren: () => import('./pages/shopper/order-info/order-info.module').then( m => m.OrderInfoPageModule)
   },
   {
     path: 'accept-order/:id',
@@ -26,7 +22,7 @@ const routes: Routes = [
   },
   {
     path: 'item-info',
-    loadChildren: () => import('./item-info/item-info.module').then( m => m.ItemInfoPageModule)
+    loadChildren: () => import('./pages/customer/item-info/item-info.module').then( m => m.ItemInfoPageModule)
   },
   {
     path: 'test',
@@ -42,11 +38,11 @@ const routes: Routes = [
   },
   {
     path: 'show-orders',
-    loadChildren: () => import('./show-orders/show-orders.module').then( m => m.ShowOrdersPageModule)
+    loadChildren: () => import('./pages/shopper/show-orders/show-orders.module').then( m => m.ShowOrdersPageModule)
   },
   {
     path: 'order-history',
-    loadChildren: () => import('./order-history/order-history.module').then( m => m.OrderHistoryPageModule)
+    loadChildren: () => import('./pages/shopper/order-history/order-history.module').then( m => m.OrderHistoryPageModule)
   },
   {
     path: 'test-env', canActivate: [AuthGuard],
@@ -88,6 +84,20 @@ const routes: Routes = [
     path: 'dashboard', canActivate: [AuthGuard],
     loadChildren: () => import('./dashboard/dashboard.module').then( m => m.DashboardPageModule)
   },
+  {  
+    path: 'categories', canActivate: [AuthGuard],
+    loadChildren: () => import('./pages/customer/categories/categories.module').then( m => m.CategoriesPageModule)
+  },
+  {
+    path: 'activity',
+    loadChildren: () => import('./pages/shopper/activity/activity.module').then( m => m.ActivityPageModule)
+  },
+  {
+    path: 'register',
+    loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
+  },
+
+
 
 
 

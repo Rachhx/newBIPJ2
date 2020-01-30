@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
-import { TestService } from '../services/test.service';
+import { TestService } from '../../services/test.service';
 
 @Component({
   selector: 'app-test-env',

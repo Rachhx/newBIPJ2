@@ -3,7 +3,7 @@ import * as firebase from 'firebase';
 import { AuthService } from './auth.service';
 import { orderItemTry } from '../models/orderItemTry';
 import { orderTry } from '../models/orderTry';
-import { ItemInfoPage } from 'src/app/item-info/item-info.page';
+import { ItemInfoPage } from 'src/app/pages/customer/item-info/item-info.page';
 import { orderDetails } from '../models/orderDetails';
 
 @Injectable({

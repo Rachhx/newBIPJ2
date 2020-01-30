@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { forkJoin, Observable } from 'rxjs';
-import { AuthService } from 'src/app/services/auth.service';
+import { AuthService } from 'src/services/auth.service';
 import { Router } from '@angular/router';
-import { TestService } from '../services/test.service';
+import { TestService } from '../../services/test.service';
 
 
 @Component({

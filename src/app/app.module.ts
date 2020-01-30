@@ -8,10 +8,8 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { LoginPageModule } from './login/login.module';
 
 import { AngularFireModule } from '@angular/fire';
-import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { environment } from '../environments/environment';
 import { AngularFirestoreModule, FirestoreSettingsToken } from '@angular/fire/firestore';
 import {AngularFireAuthModule} from '@angular/fire/auth';
@@ -25,18 +23,22 @@ import { Firebase } from '@ionic-native/firebase/ngx';
 import { Camera } from '@ionic-native/camera/ngx';
 import { FirebaseX } from '@ionic-native/firebase-x/ngx';
 import { AngularFireStorageModule } from '@angular/fire/storage';
+import { CartModalPage } from './modals/cart-modal/cart-modal.page';
 
 @NgModule({
   declarations: [
     AppComponent,
     TestCsCollectionPage,
     TestShProgressPage,
-    TestShQRPage
+    TestShQRPage,
+    CartModalPage,
+
   ],
   entryComponents: [
     TestCsCollectionPage,
     TestShProgressPage,
-    TestShQRPage
+    TestShQRPage,
+    CartModalPage
   ],
   imports: [
     BrowserModule, 

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { OrderServiceService } from '../shared/services/order-service.service';
+import { OrderServiceService } from '../../../shared/services/order-service.service';
 
 @Component({
   selector: 'app-order-history',

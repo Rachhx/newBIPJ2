@@ -1,10 +1,12 @@
-import { CartService } from './../services/cart.service';
+import { CartService } from '../../../../services/cart.service';
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { BehaviorSubject } from 'rxjs';
-import { CrudService } from '../crud.service';
-import { Product } from '../shared/product';
-import { CartModalPage } from '../cart-modal/cart-modal.page';
+import { CrudService } from '../../../../services/crud.service';
+import { Product } from '../../../shared/product';
+import { CartModalPage } from '../../../modals/cart-modal/cart-modal.page';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { AuthService } from 'src/services/auth.service';
  
 @Component({   
   selector: 'app-categories',
@@ -20,7 +22,13 @@ export class CategoriesPage {
     
   @ViewChild('cart', {static: false, read: ElementRef})fab: ElementRef;
  
-  constructor(private cartService: CartService, private modalCtrl: ModalController,private crudService: CrudService) {}
+  constructor(
+    private cartService: CartService, 
+    private modalCtrl: ModalController,
+    private crudService: CrudService,
+    private afs: AngularFirestore,
+    private auth: AuthService
+  ) { }
  
   ngOnInit() {
     this.products = this.cartService.getProducts();
@@ -32,7 +40,7 @@ export class CategoriesPage {
   let record = {};
   record['PName'] = product.name;
   record['PPrice'] = product.price;
-  record['user'] = "12345abc";
+  record['user'] = this.auth.username;
 
   this.crudService.create_NewCart(record).then(resp => {
    console.log(this.cart) 

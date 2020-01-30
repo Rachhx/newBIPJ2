@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { OrderServiceService } from '../shared/services/order-service.service';
+import { OrderServiceService } from '../../../shared/services/order-service.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AuthService } from '../shared/services/auth.service';
+import { AuthService } from '../../../shared/services/auth.service';
 import { AngularFireAuth } from '@angular/fire/auth';
 
 @Component({
