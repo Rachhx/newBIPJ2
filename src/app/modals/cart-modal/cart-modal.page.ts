@@ -44,7 +44,7 @@ export class CartModalPage implements OnInit {
   console.log(this.cart) 
   }
 
-CreateRecord() {
+  CreateRecord() {
   let record = {};
   record['PName'] = this.PName;
   record['PPrice'] = this.PPrice;
